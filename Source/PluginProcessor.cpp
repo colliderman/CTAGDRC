@@ -252,13 +252,13 @@ AudioProcessorValueTreeState::ParameterLayout CtagdrcAudioProcessor::createParam
 {
     std::vector<std::unique_ptr<RangedAudioParameter>> params;
 
-    params.push_back(std::make_unique<AudioParameterBool>("lookahead", "Lookahead", false));
-    params.push_back(std::make_unique<AudioParameterBool>("automakeup", "AutoMakeup", false));
-    params.push_back(std::make_unique<AudioParameterBool>("autoattack", "AutoAttack", false));
-    params.push_back(std::make_unique<AudioParameterBool>("autorelease", "AutoRelease", false));
-    params.push_back(std::make_unique<AudioParameterBool>("power", "Power", true));
+    params.push_back(std::make_unique<AudioParameterBool>(ParameterID {"lookahead", 1}, "Lookahead", false));
+    params.push_back(std::make_unique<AudioParameterBool>(ParameterID {"automakeup", 1}, "AutoMakeup", false));
+    params.push_back(std::make_unique<AudioParameterBool>(ParameterID {"autoattack", 1}, "AutoAttack", false));
+    params.push_back(std::make_unique<AudioParameterBool>(ParameterID {"autorelease", 1}, "AutoRelease", false));
+    params.push_back(std::make_unique<AudioParameterBool>(ParameterID {"power", 1}, "Power", true));
 
-    params.push_back(std::make_unique<AudioParameterFloat>("inputgain", "Input",
+    params.push_back(std::make_unique<AudioParameterFloat>(ParameterID {"inputgain", 1}, "Input",
                                                            NormalisableRange<float>(
                                                                Constants::Parameter::inputStart,
                                                                Constants::Parameter::inputEnd,
@@ -271,7 +271,7 @@ AudioProcessorValueTreeState::ParameterLayout CtagdrcAudioProcessor::createParam
                                                            }));
 
 
-    params.push_back(std::make_unique<AudioParameterFloat>("threshold", "Tresh",
+    params.push_back(std::make_unique<AudioParameterFloat>(ParameterID {"threshold", 1}, "Tresh",
                                                            NormalisableRange<float>(
                                                                Constants::Parameter::thresholdStart,
                                                                Constants::Parameter::thresholdEnd,
@@ -282,7 +282,7 @@ AudioProcessorValueTreeState::ParameterLayout CtagdrcAudioProcessor::createParam
                                                                return String(value, 1) + " dB";
                                                            }));
 
-    params.push_back(std::make_unique<AudioParameterFloat>("ratio", "Ratio",
+    params.push_back(std::make_unique<AudioParameterFloat>(ParameterID {"ratio", 1}, "Ratio",
                                                            NormalisableRange<float>(
                                                                Constants::Parameter::ratioStart,
                                                                Constants::Parameter::ratioEnd,
@@ -294,7 +294,7 @@ AudioProcessorValueTreeState::ParameterLayout CtagdrcAudioProcessor::createParam
                                                                return String(value, 1) + ":1";
                                                            }));
 
-    params.push_back(std::make_unique<AudioParameterFloat>("knee", "Knee",
+    params.push_back(std::make_unique<AudioParameterFloat>(ParameterID {"knee", 1}, "Knee",
                                                            NormalisableRange<float>(
                                                                Constants::Parameter::kneeStart,
                                                                Constants::Parameter::kneeEnd,
@@ -305,7 +305,7 @@ AudioProcessorValueTreeState::ParameterLayout CtagdrcAudioProcessor::createParam
                                                                return String(value, 1) + " dB";
                                                            }));
 
-    params.push_back(std::make_unique<AudioParameterFloat>("attack", "Attack",
+    params.push_back(std::make_unique<AudioParameterFloat>(ParameterID {"attack", 1}, "Attack",
                                                            NormalisableRange<float>(
                                                                Constants::Parameter::attackStart,
                                                                Constants::Parameter::attackEnd,
@@ -318,7 +318,7 @@ AudioProcessorValueTreeState::ParameterLayout CtagdrcAudioProcessor::createParam
                                                                return String(value, 2) + " ms";
                                                            }));
 
-    params.push_back(std::make_unique<AudioParameterFloat>("release", "Release",
+    params.push_back(std::make_unique<AudioParameterFloat>(ParameterID {"release", 1}, "Release",
                                                            NormalisableRange<float>(
                                                                Constants::Parameter::releaseStart,
                                                                Constants::Parameter::releaseEnd,
@@ -334,7 +334,7 @@ AudioProcessorValueTreeState::ParameterLayout CtagdrcAudioProcessor::createParam
                                                                return String(value, 1) + " ms";
                                                            }));
 
-    params.push_back(std::make_unique<AudioParameterFloat>("makeup", "Makeup",
+    params.push_back(std::make_unique<AudioParameterFloat>(ParameterID {"makeup", 1}, "Makeup",
                                                            NormalisableRange<float>(
                                                                Constants::Parameter::makeupStart,
                                                                Constants::Parameter::makeupEnd,
@@ -346,7 +346,7 @@ AudioProcessorValueTreeState::ParameterLayout CtagdrcAudioProcessor::createParam
                                                                return String(value, 1) + " dB ";
                                                            }));
 
-    params.push_back(std::make_unique<AudioParameterFloat>("mix", "Mix",
+    params.push_back(std::make_unique<AudioParameterFloat>(ParameterID {"mix", 1}, "Mix",
                                                            NormalisableRange<float>(
                                                                Constants::Parameter::mixStart,
                                                                Constants::Parameter::mixEnd,
